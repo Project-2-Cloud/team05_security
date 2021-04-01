@@ -1,51 +1,33 @@
 package com.example.product;
 
-import com.example.product.Product;
+import com.example.product.Consultant;
 import org.springframework.security.oauth2.jwt.Jwt;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin( origins = "http://localhost:8080", allowCredentials = "true")
 @RestController
 public class ProductController {
 
     @GetMapping("/products")
-    public List<Product> getAllProducts() {
+    public List<Consultant> getAllConsultants() {
+        System.out.println("???");
+
         return Arrays.asList(
-                new Product(
-                        "1",
-                        "macbook Retina 13.3' ME662 (2013)",
-                        "3.0GHz Dual-core Haswell Intel Core i5 Turbo Boost up to 3.2 GHz, 3MB L3 cache 8GB (two 4GB SO-DIMMs) of 1600MHz DDR3 SDRAM",
-                        "https://www.dropbox.com/s/swg9bdr0ejcbtrl/img9.jpg?raw=1",
-                        10,
-                        2399
-                ),
-                new Product(
-                        "2",
-                        "macbook Pro 13.3' Retina MF841LL/A",
-                        "Macbook Pro 13.3' Retina MF841LL/A Model 2015 Option Ram Care 12/2016",
-                        "https://www.dropbox.com/s/6tqcep7rk29l59e/img2.jpeg?raw=1",
-                        15,
-                        1199
-                ),
-                new Product(
-                        "3",
-                        "Macbook Pro 15.4' Retina MC975LL/A Model 2012",
-                        "3.0GHz Dual-core Haswell Intel Core i5 Turbo Boost up to 3.2 GHz, 3MB L3 cache 8GB (two 4GB SO-DIMMs) of 1600MHz DDR3 SDRAM",
-                        "https://www.dropbox.com/s/78fot6w894stu3n/img3.jpg?raw=1",
-                        1,
-                        1800
-                )
+                //new Consultant("1", "Milos Fungate", "Hello, my name is Milos and I provide blockchain consulting services. With several years developing blockchain solutions, as well as regular software development, I was able to cover a lot of terrain concerning different types of blockchain systems. Furthermore, I've received my MSc in the area of blockchain and information technologies. If you need a general architecture, or an overview, look no further - we're bound to make something happen", "https://miro.medium.com/max/2800/1*w96ZU0M9GOAGU_hVXvdH8g.jpeg", 50),
+                //new Consultant("2", "Ryan G", "Licensed CPA with 5 years experience in audit and transaction services for Big 4 Firm. Controller and CFO for a large number of startup companies. Skills include expertise in GAAP and IFRS accounting, financial management and planning, CFO and fundraising services, and due diligence. Vast knowledge of Quickbooks, Xero, Netsuite, SAP, Gusto, Paychex, Expensify, and others. Services include bookkeeping, accounting management and controller services, payroll, A/P, A/R, CFO services, financial planning, fundraising, taxes, and business consulting.", "https://www.pngkey.com/png/detail/400-4000020_some-random-guy-photograph.png", 45),
+                new Consultant("3", "Chloe W", "I'm a Creative, skilled and accomplished Content Writer with diverse knowledge of writing contents for various websites." , "As a full-time writer and editor, I've made a career of polishing others' content. I work with clients ranging from hospitals, Tech firms, and law firms, , to artists and building companies, and ensure everything they publish hits the mark As a former Bloomberg affiliate reporter, I have a knack for writing from others' perspectives.If we work together, I will help you...", "https://randomuser.me/api/portraits/women/94.jpg", 40),
+                new Consultant("4", "Faruk K", "Bachelor's degree in information security, computer science." , "Specialized in blockchaintechnology and a professional cyrpto analyst. Bachelor's degree in information security, computer science. Specialized in blockchaintechnology and a professional cyrpto analyst.", "https://randomuser.me/api/portraits/men/61.jpg", 65),
+                new Consultant("5", "Ryan G", "I am software developer and consultant in the area of Ethereum, Smart Contract development.", "Contact me if you would like me to work on ICO or Smart Contract development. You can also send me a message if you feel a little lost in new world of Smart Contract Development. Currently I work only as a Solidity Ethereum Developer and Consultant.", "https://www.upwork.com/profile-portraits/c1_A2tVq_ADFMWEIF5EeSi45lujtAUe2A9coDDzRSQWJzpACrAClZy81QjPE8vw0Zm", 60),
+                new Consultant("6",  "Stefan C","I am a computer scientist with a background in Distributed Systems research and cybersecurity (more than 20 years).", "I hold a Ph.D. in Computer Science from the University of Manchester (United Kingdom). My current freelance activities focus on blockchain consulting and technical writing. I offer smart contract audits, blockchain architecture design and technical writing.", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEQwyipIfncjOFxEr-Ziy1HemWB4oOPxNK4g&usqp=CAU", 70),
+                new Consultant("7", "Konstantin S" , "I'm a Fintech / DeFi consultant with more than 12 years of experience, so you can describe me as a qualified analyst in banking & finance.", "I also worked on the development and on improvement and architecture design of a wide range of complex financial IT systems. Several years ago I've discovered blockchain and got very excited about this new technology that was innovative and ambitious.", "https://randomuser.me/api/portraits/men/18.jpg", 85),
+                new Consultant("8", "Michael K", "Successful entrepreneur and business builder with specific commercial expertise in trading, risk management, physical commodities, renewables.", "Have been member of leadership team in multiple greater than $100M P/L companies. Hands-on, direct development experience with data analysis, blockchain, product management, and software development. Additional deep expertise in databases, Excel, business modeling, algorithms, and automation.", "https://randomuser.me/api/portraits/men/32.jpg", 70)
+
         );
     }
 
@@ -64,8 +46,8 @@ public class ProductController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/products")
-    public String addProduct(@RequestBody Product product, @AuthenticationPrincipal Jwt accessToken) {
+    @RequestMapping(method = RequestMethod.POST, value = "/consultants")
+    public String addProduct(@RequestBody Consultant consultant, @AuthenticationPrincipal Jwt accessToken) {
         System.out.println("In POST Request");
         String scope = accessToken.getClaims().get("scope").toString();
         Boolean partnerRole = scope.contains("partner");
@@ -77,6 +59,15 @@ public class ProductController {
         } else {
             return "Not Authorized to add product";
         }
+    }
+
+    @GetMapping("/hiredConsultants/{id}")
+    public Consultant hiredConsultants(@PathVariable("id") String id) {
+        List<Consultant> consultants =  this.getAllConsultants();
+
+        Consultant consultant = consultants.get(Integer.parseInt(id) - 1);
+
+        return consultant;
     }
 
 }

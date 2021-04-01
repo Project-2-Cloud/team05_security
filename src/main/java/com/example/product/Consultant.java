@@ -1,25 +1,25 @@
 package com.example.product;
 
-public class Product {
+public class Consultant {
 
     private String id;
-    private String title;
+    private String name;
+    private String shortSummary;
     private String description;
     private String thumbnail_url;
-    private int quantity;
     private float price;
 
-    public Product() {
+    public Consultant() {
 
     }
 
-    public Product(String id, String title, String description, String thumbnail_url, int quantity, float price) {
+    public Consultant(String id, String name, String shortSummary, String description, String thumbnail_url, float price) {
         super();
         this.id = id;
-        this.title = title;
+        this.name = name;
+        this.shortSummary = shortSummary;
         this.description = description;
         this.thumbnail_url = thumbnail_url;
-        this.quantity = quantity;
         this.price = price;
     }
 
@@ -31,12 +31,12 @@ public class Product {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName(){
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name){
+        this.name = name;
     }
 
     public String getDescription() {
@@ -55,14 +55,6 @@ public class Product {
         this.thumbnail_url = thumbnail_url;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
     public float getPrice() {
         return price;
     }
@@ -71,4 +63,12 @@ public class Product {
         this.price = price;
     }
 
-}
+    public String getShortSummary() {
+        return this.shortSummary;
+    }
+
+    public void setShortSummary(String summary) {
+        this.shortSummary = summary;
+    }
+
+    }
