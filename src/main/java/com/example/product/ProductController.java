@@ -32,7 +32,7 @@ public class ProductController {
                 ),
                 new Product(
                         "2",
-                        "Macbook Pro 13.3' Retina MF841LL/A",
+                        "macbook Pro 13.3' Retina MF841LL/A",
                         "Macbook Pro 13.3' Retina MF841LL/A Model 2015 Option Ram Care 12/2016",
                         "https://www.dropbox.com/s/6tqcep7rk29l59e/img2.jpeg?raw=1",
                         15,
