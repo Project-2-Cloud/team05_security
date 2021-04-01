@@ -10,7 +10,7 @@ import java.util.List;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin( origins = "http://localhost:8080", allowCredentials = "true")
+@CrossOrigin( origins = "http://hybrid-cloud-team-cinq-port-8080-ucllteam05.ocp-ucll-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud/", allowCredentials = "true")
 @RestController
 public class ProductController {
 
